@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+set -e
+
+# Parse params
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+# Default version
+version="2.7"
+
+# Read version from configured TCMALLOC_VERSION
+if [ -f $ENV_DIR/TCMALLOC_VERSION ]; then
+  version=$(cat $ENV_DIR/TCMALLOC_VERSION)
+fi
+
+url="https://github.com/gaffneyc/heroku-buildpack-tcmalloc/releases/download/$STACK/tcmalloc-$version.tar.bz2"
+dest="$BUILD_DIR/vendor/tcmalloc"
+
+echo "-----> Vendoring tcmalloc"
+echo "       Fetching $url"
+
+mkdir -p $dest
+curl -sL $url | tar -C $dest -xj
+
+echo "-----> Building runtime environment"
+mkdir -p $BUILD_DIR/.profile.d
+
+cat <<'EOF' > $BUILD_DIR/.profile.d/tcmalloc.sh
+export PATH="$PATH:/app/vendor/tcmalloc/bin"
+
+# Configure LD_PRELOAD when TCMALLOC_ENABLED is set to "true".
+if [ "$TCMALLOC_ENABLED" = 'true' ]; then
+  export LD_PRELOAD="/app/vendor/tcmalloc/lib/libtcmalloc_minimal.so $LD_PRELOAD"
+fi
+EOF

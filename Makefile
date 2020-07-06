@@ -31,3 +31,4 @@ heroku-18: src/gperftools-$(VERSION).tar.gz
 # Build recent releases for all supported stacks
 all:
 	$(MAKE) cedar-14 heroku-16 heroku-18 VERSION=2.7
+	$(MAKE) cedar-14 heroku-16 heroku-18 VERSION=2.8

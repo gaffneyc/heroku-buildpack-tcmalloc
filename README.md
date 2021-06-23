@@ -12,6 +12,20 @@ heroku buildpacks:add https://github.com/gaffneyc/heroku-buildpack-tcmalloc.git
 git push heroku master
 ```
 
+## Made possible by Dead Man's Snitch
+
+Continued development and support of the tcmalloc buildpack is sponsored by
+[Dead Man's Snitch](https://deadmanssnitch.com).
+
+Ever been surprised that a critical recurring job was silently failing to run?
+Whether it's backups, cache clearing, sending invoices, or whatever your
+application depends on, Dead Man's Snitch makes it easy to
+[monitor heroku scheduler](https://deadmanssnitch.com/docs/heroku) tasks or to add
+[cron job monitoring](https://deadmanssnitch.com/docs/cron-job-monitoring) to
+your other services.
+
+Get started for free today with [Dead Man's Snitch on Heroku](https://elements.heroku.com/addons/deadmanssnitch)
+
 ## Usage
 
 ### Recommended
@@ -103,10 +117,3 @@ Artifacts will be dropped in `dist/` based on Heroku stack and tcmalloc version.
 - Tag is the name of the Stack (e.g. `heroku-18`)
 - Target is `release-master`
 - Title is `Builds for the [stack] stack`
-
-## Thanks
-
-Development of the TCMalloc buildpack is sponsored by [Dead Man's Snitch](https://deadmanssnitch.com),
-a monitoring service for cron jobs and other scheduled tasks. Running backups,
-invoicing, or other critical jobs on a regular basis? Dead Man's Snitch gives
-you the peace of mind that they're actually working.

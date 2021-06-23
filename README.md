@@ -67,9 +67,13 @@ heroku config:set TCMALLOC_VERSION=2.7
 
 #### Available Versions
 
-| Version |
-| ------- |
-| 2.7     |
+| Version                                                                         | Released   |
+| ------------------------------------------------------------------------------- | ---------- |
+| [2.7](https://github.com/gperftools/gperftools/releases/tag/gperftools-2.7)     | 2018-04-30 |
+| [2.8](https://github.com/gperftools/gperftools/releases/tag/gperftools-2.8)     | 2020-07-06 |
+| [2.8.1](https://github.com/gperftools/gperftools/releases/tag/gperftools-2.8.1) | 2020-12-21 |
+| [2.9](https://github.com/gperftools/gperftools/releases/tag/gperftools-2.9)     | 2021-02-21 |
+| [2.9.1](https://github.com/gperftools/gperftools/releases/tag/gperftools-2.9.1) | 2021-03-02 |
 
 The complete and most up to date list of supported versions and stacks is
 available on the [releases page.](https://github.com/gaffneyc/heroku-buildpack-tcmalloc/releases)

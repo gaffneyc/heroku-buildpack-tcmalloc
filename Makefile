@@ -29,3 +29,6 @@ heroku-20: src/gperftools-$(VERSION).tar.gz
 all:
 	$(MAKE) heroku-18 VERSION=2.7
 	$(MAKE) heroku-18 VERSION=2.8
+	$(MAKE) heroku-18 VERSION=2.8.1
+	$(MAKE) heroku-18 VERSION=2.9
+	$(MAKE) heroku-18 VERSION=2.9.1
